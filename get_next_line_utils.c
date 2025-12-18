@@ -6,7 +6,7 @@
 /*   By: wtavares <wtavares@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:47:03 by wtavares          #+#    #+#             */
-/*   Updated: 2025/12/18 19:02:53 by wtavares         ###   ########.fr       */
+/*   Updated: 2025/12/18 19:26:53 by wtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,49 @@ char	*ft_strchr(const char *s, int c)
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char	*ptr_dest;
-	unsigned char	*ptr_src;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	if (!dest || !src)
-		return (NULL);
-	ptr_dest = (unsigned char *)dest;
-	ptr_src = (unsigned char *)src;
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
 	while (n--)
-	{
-		*ptr_dest = *ptr_src;
-		ptr_src++;
-		ptr_dest++;
-	}
+		*d++ = *s++;
 	return (dest);
 }
+
 char	*ft_join(char const *s1, char const *s2)
 {
-	
+	size_t	len1;
+	size_t	len2;
+	char	*res;
+
+	if (!s2)
+		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	res = malloc(len1 + len2 + 1);
+	if (!res)
+		return (NULL);
+	ft_memcpy(res, s1, len1);
+	ft_memcpy(res + len1, s2, len2);
+	res[len1 + len2] = '\0';
+	return (res);
+}
+
+char	*ft_strdup(const char *s)
+{
+	size_t	len;
+	char	*dup;
+
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	dup = malloc(len + 1);
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s, len);
+	dup[len] = '\0';
+	return (dup);
 }
