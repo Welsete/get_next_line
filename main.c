@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wtavares <wtavares@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 15:04:24 by wtavares          #+#    #+#             */
-/*   Updated: 2025/12/19 15:07:05 by wtavares         ###   ########.fr       */
+/*   Created: 2025/12/19 16:17:52 by wtavares          #+#    #+#             */
+/*   Updated: 2025/12/19 20:50:19 by wtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include "get_next_line.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+int	main(void)
+{
+	int	fd;
 
-# include <stdlib.h>
-# include <unistd.h>
-
-char	*get_next_line(int fd);
-
-char	*ft_strchr(const char *s, int c);
-char	*ft_join(char const *s1, char const *s2);
-char	*ft_strdup(const char *s);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-size_t	ft_strlen(const char *str);
-#endif
+	fd = open ("teste.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		printf("Erro ao abrir o arquivo!\n");
+		return (1);
+	}
+	close(fd);
+}
