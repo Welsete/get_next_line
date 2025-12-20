@@ -6,7 +6,7 @@
 /*   By: wtavares <wtavares@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:47:07 by wtavares          #+#    #+#             */
-/*   Updated: 2025/12/19 20:49:10 by wtavares         ###   ########.fr       */
+/*   Updated: 2025/12/20 12:58:41 by wtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,42 @@
 
 char	*get_next_line(int fd)
 {
-	char		buffer[BUFFER_SIZE + 1];
-	ssize_t		bytes;
 	static char	*stash;
-	char		*tmp;
 
-	while (!ft_strchr(stash, '\n'))
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	if (read_and_stash(fd, &stash) == -1)
+	{
+		free(stash);
+		stash = NULL;
+		return (NULL);
+	}
+	return (extract_line(&stash));
+}
+
+int	read_and_stash(int fd, char **stash)
+{
+	char	*buffer;
+	ssize_t	bytes;
+
+	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
+		return (-1);
+	bytes = 1;
+	while (bytes > 0 && (!*stash || !ft_strchr(*stash, '\n')))
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes == -1)
-			return (NULL);
-		if (bytes == 0)
-			break ;
-		buffer[bytes] = '\0';
-		if (!stash)
-			stash = ft_strdup(buffer);
-		else
 		{
-			tmp = stash;
-			stash = ft_join(stash, buffer);
-			free(tmp);
+			free(buffer);
+			return (-1);
 		}
+		buffer[bytes] = '\0';
+		if (bytes > 0)
+			*stash = ft_join(*stash, buffer);
 	}
-	return (NULL);
+	free(buffer);
+	return (0);
 }
 
 char	*extract_line(char **stash)

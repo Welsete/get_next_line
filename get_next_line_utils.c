@@ -6,7 +6,7 @@
 /*   By: wtavares <wtavares@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:47:03 by wtavares          #+#    #+#             */
-/*   Updated: 2025/12/19 20:45:14 by wtavares         ###   ########.fr       */
+/*   Updated: 2025/12/20 12:59:42 by wtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	while (*str)
+	while (*str++)
 		i++;
 	return (i);
 }
@@ -52,25 +52,29 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-char	*ft_join(char const *s1, char const *s2)
+char	*ft_join(char *s1, char const *s2)
 {
 	size_t	len1;
 	size_t	len2;
-	char	*res;
+	char	*concatenate;
 
-	if (!s2)
-		return (NULL);
 	if (!s1)
 		return (ft_strdup(s2));
+	if (!s2)
+		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	res = malloc(len1 + len2 + 1);
-	if (!res)
+	concatenate = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (!concatenate)
+	{
+		free(s1);
 		return (NULL);
-	ft_memcpy(res, s1, len1);
-	ft_memcpy(res + len1, s2, len2);
-	res[len1 + len2] = '\0';
-	return (res);
+	}
+	ft_memcpy(concatenate, s1, len1);
+	ft_memcpy(concatenate + len1, s2, len2);
+	concatenate[len1 + len2] = '\0';
+	free(s1);
+	return (concatenate);
 }
 
 char	*ft_strdup(const char *s)
