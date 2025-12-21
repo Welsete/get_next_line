@@ -21,7 +21,7 @@ Esse projeto reforça o uso de leitura de arquivos, ponteiros e alocação dinâ
 
 ###  Compilação obrigatória (conforme o subject)
 
-De acordo com o *subject oficial*, a **compilação obrigatória** deve ser feita **somente com os arquivos do projeto**, sem incluir um `main.c` (o avaliador fornecerá o seu próprio arquivo de testes).
+De acordo com o *subject oficial*, a **compilação obrigatória** deve ser feita **somente com os arquivos do projeto**, sem incluir um `main.c` (https://github.com/Welsete/get_next_line).
 
 Exemplo:
 ```bash
@@ -38,7 +38,7 @@ cc -Wall -Wextra -Werror -D BUFFER_SIZE=9999 get_next_line.c get_next_line_utils
 
 ###  Compilação opcional (para testes pessoais)
 
-Caso deseje testar o projeto localmente, você pode adicionar um `main.c` próprio e compilar com:
+Caso deseje testar o projeto localmente, você pode adicionar um `main.c` (https://github.com/Welsete/get_next_line) e compilar com:
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c -o gnl
 ```
@@ -114,10 +114,10 @@ Essa estrutura garante:
 ##  Recursos
 
 ### Referências Oficiais
-- [Funções da biblioteca C — read(), malloc(), free()](https://man7.org/linux/man-pages/)
-- [Subject oficial do get_next_line (42)](https://github.com/42School)
-- *The C Programming Language* — Kernighan & Ritchie  
-- *Understanding C Pointers* — Richard Reese  
+- [Funções da biblioteca C — read(), malloc(), free(), static variable](https://devdocs.io/)
+- [Subject oficial do get_next_line (42)](Intra 42SP)
+- [XaveCoding - Curso: Dominando Estrutura de Dados 1] — Professor Samuka (https://www.youtube.com/@xavecoding)
+- [https://pt.stackoverflow.com/questions/164808/vari%C3%A1vel-static-e-define] -  Variável estática
 
 ---
 
@@ -125,7 +125,7 @@ Essa estrutura garante:
 
 Ferramentas de IA (**ChatGPT / ScholarGPT**) foram utilizadas **somente para:**
 - Revisão estrutural e explicação do fluxo de memória;  
-- Auxilio na criação de arquivos de teste e Makefile auxiliar;  
+- Auxílio na criação de arquivos de teste e Makefile auxiliar;  
 - Padronização e clareza deste README.  
 
 Todo o código e a lógica foram escritos e testados manualmente por **wtavares**.
