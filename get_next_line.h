@@ -6,7 +6,7 @@
 /*   By: wtavares <wtavares@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 15:04:24 by wtavares          #+#    #+#             */
-/*   Updated: 2025/12/20 22:33:47 by wtavares         ###   ########.fr       */
+/*   Updated: 2025/12/21 10:45:17 by wtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,14 @@
 
 char	*get_next_line(int fd);
 
+size_t	ft_strlen(const char *str);
 int		read_and_stash(int fd, char **stash);
 char	*extract_line(char **stash);
-void	update_stash(char **stash, char *newline_ptr);
 char	*create_line(char *stash, char *newline_ptr);
-
-size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_joinwash(char *s1, char const *s2);
 char	*ft_strdup(const char *s);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	update_stash(char **stash, char *newline_ptr);
 
 #endif
