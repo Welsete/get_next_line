@@ -69,7 +69,6 @@ make b23921         # BUFFER_SIZE = 23921, arquivo tests/test1.txt
 Comandos adicionais disponíveis:
 ```bash
 make            # Compila a biblioteca get_next_line.a
-make test       # Compila o programa de teste com o main.c
 make run        # Compila e executa o teste automaticamente
 make clean      # Remove os arquivos objeto (.o)
 make fclean     # Remove objetos e binários
