@@ -6,7 +6,7 @@
 /*   By: wtavares <wtavares@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:47:03 by wtavares          #+#    #+#             */
-/*   Updated: 2025/12/20 22:13:50 by wtavares         ###   ########.fr       */
+/*   Updated: 2025/12/20 22:33:14 by wtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-char	*ft_join(char *s1, char const *s2)
+char	*ft_joinwash(char *s1, char const *s2)
 {
 	size_t	len1;
 	size_t	len2;

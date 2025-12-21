@@ -6,7 +6,7 @@
 /*   By: wtavares <wtavares@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:47:07 by wtavares          #+#    #+#             */
-/*   Updated: 2025/12/20 12:58:41 by wtavares         ###   ########.fr       */
+/*   Updated: 2025/12/20 22:33:42 by wtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	read_and_stash(int fd, char **stash)
 	char	*buffer;
 	ssize_t	bytes;
 
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (-1);
 	bytes = 1;
@@ -46,7 +46,7 @@ int	read_and_stash(int fd, char **stash)
 		}
 		buffer[bytes] = '\0';
 		if (bytes > 0)
-			*stash = ft_join(*stash, buffer);
+			*stash = ft_joinwash(*stash, buffer);
 	}
 	free(buffer);
 	return (0);
