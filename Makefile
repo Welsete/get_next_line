@@ -39,11 +39,20 @@ run:
 #                         CUSTOM SHORTCUTS FOR TESTS                           #
 # **************************************************************************** #
 
-# Format: make bX file
+# Format: make bX [file]
 b%:
-	@$(MAKE) BUFFER_SIZE=$* TEST_FILE=$(word 2, $(MAKECMDGOALS)) run
+	@file=$(word 2, $(MAKECMDGOALS)); \
+	if [ -z "$$file" ]; then \
+		file="tests/test1.txt"; \
+	else \
+		case "$$file" in \
+			*.txt) file="tests/$$file" ;; \
+			*) file="tests/$$file.txt" ;; \
+		esac; \
+	fi; \
+	$(MAKE) BUFFER_SIZE=$* TEST_FILE=$$file run
 
-# Avoid errors for the second argument
+# Avoid errors for second argument
 %:
 	@:
 

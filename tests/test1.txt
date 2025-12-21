@@ -1,0 +1,5 @@
+Hello world!
+This is a test file for get_next_line.
+Each line should be returned separately.
+42 Network - wtavares
+End of test.
