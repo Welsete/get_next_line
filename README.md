@@ -66,6 +66,16 @@ make b1000 large    # BUFFER_SIZE = 1000, arquivo tests/large.txt
 make b23921         # BUFFER_SIZE = 23921, arquivo tests/test1.txt
 ```
 
+Comandos adicionais disponíveis:
+```bash
+make            # Compila a biblioteca get_next_line.a
+make test       # Compila o programa de teste com o main.c
+make run        # Compila e executa o teste automaticamente
+make clean      # Remove os arquivos objeto (.o)
+make fclean     # Remove objetos e binários
+make re         # Executa fclean e recompila do zero
+```
+
 ⚠️ **Importante:**  
 Durante a avaliação, o avaliador deve compilar **manualmente**, conforme indicado no subject.  
 O Makefile serve apenas como ferramenta de apoio para demonstração e autoavaliação.
@@ -114,10 +124,10 @@ Essa estrutura garante:
 ##  Recursos
 
 ### Referências Oficiais
-- [Funções da biblioteca C - read(), malloc(), free(), static variable](https://devdocs.io/)
-- [Subject oficial do get_next_line (42)](Intra 42SP)
+- [Funções da biblioteca C - read(), malloc(), free(), static variable] - DevDocs (https://devdocs.io/)
+- [Subject oficial do get_next_line (42)] - Intra 42SP
 - [XaveCoding - Curso: Dominando Estrutura de Dados 1] - Professor Samuka (https://www.youtube.com/@xavecoding)
-- [https://pt.stackoverflow.com/questions/164808/vari%C3%A1vel-static-e-define] -  Variável estática
+- [Variável estática] - StackOverflow (https://pt.stackoverflow.com/questions/164808/vari%C3%A1vel-static-e-define )
 
 ---
 
