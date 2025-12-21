@@ -49,7 +49,7 @@ Depois execute:
 ```
 
 Esse método é **opcional** e serve apenas para facilitar testes pessoais.  
-Durante a avaliação da 42, **não use `main.c` nem gere executáveis** — apenas os arquivos obrigatórios devem ser compilados.
+Durante a avaliação da 42, **não use `main.c` nem gere executáveis** - apenas os arquivos obrigatórios devem ser compilados.
 
 ---
 
@@ -98,10 +98,10 @@ Esses arquivos permitem testar:
 
 O funcionamento do `get_next_line` é dividido em quatro partes principais:
 
-1. **`read_and_stash()`** — lê do *file descriptor* e acumula o conteúdo no *stash* até encontrar um `\n` ou o fim do arquivo.  
-2. **`extract_line()`** — separa a próxima linha completa a ser retornada.  
-3. **`create_line()`** — aloca dinamicamente a linha e copia o conteúdo correto.  
-4. **`update_stash()`** — mantém o que sobrou após o `\n` para a próxima chamada.  
+1. **`read_and_stash()`** - lê do *file descriptor* e acumula o conteúdo no *stash* até encontrar um `\n` ou o fim do arquivo.  
+2. **`extract_line()`** - separa a próxima linha completa a ser retornada.  
+3. **`create_line()`** - aloca dinamicamente a linha e copia o conteúdo correto.  
+4. **`update_stash()`** - mantém o que sobrou após o `\n` para a próxima chamada.  
 
 Essa estrutura garante:
 - Compatibilidade com qualquer `BUFFER_SIZE`;  
@@ -114,9 +114,9 @@ Essa estrutura garante:
 ##  Recursos
 
 ### Referências Oficiais
-- [Funções da biblioteca C — read(), malloc(), free(), static variable](https://devdocs.io/)
+- [Funções da biblioteca C - read(), malloc(), free(), static variable](https://devdocs.io/)
 - [Subject oficial do get_next_line (42)](Intra 42SP)
-- [XaveCoding - Curso: Dominando Estrutura de Dados 1] — Professor Samuka (https://www.youtube.com/@xavecoding)
+- [XaveCoding - Curso: Dominando Estrutura de Dados 1] - Professor Samuka (https://www.youtube.com/@xavecoding)
 - [https://pt.stackoverflow.com/questions/164808/vari%C3%A1vel-static-e-define] -  Variável estática
 
 ---
