@@ -6,7 +6,7 @@
 /*   By: wtavares <wtavares@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:47:03 by wtavares          #+#    #+#             */
-/*   Updated: 2025/12/20 12:59:42 by wtavares         ###   ########.fr       */
+/*   Updated: 2025/12/20 22:13:50 by wtavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*ft_join(char *s1, char const *s2)
 		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	concatenate = malloc(sizeof(char) * (len1 + len2 + 1));
+	concatenate = malloc(len1 + len2 + 1);
 	if (!concatenate)
 	{
 		free(s1);
