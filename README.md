@@ -7,7 +7,7 @@
 **get_next_line** is a 42 project aimed at implementing a function capable of **reading a file line by line**, from a *file descriptor (fd)*.  
 The main challenge is handling partial reads and correctly managing memory, ensuring that each function call returns **exactly one line**, even when the *buffer* used is smaller than the line size.
 
-### 🎯 Objectives
+###  Objectives
 - Read from any *file descriptor* until `\n` or the end of the file is found.  
 - Return each line separately, including the `\n` character when present.  
 - Keep unread content in a `static` variable to be used in the next call.  
@@ -75,7 +75,7 @@ make fclean     # Removes objects and binaries
 make re         # Runs fclean and recompiles from scratch
 ```
 
-⚠️ **Important:**  
+ **Important:**  
 During the evaluation, the evaluator must compile **manually**, as indicated in the subject.  
 The Makefile serves only as a support tool for demonstration and self-evaluation.
 
