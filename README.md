@@ -1,34 +1,34 @@
 *This project has been created as part of the 42 curriculum by wtavares.*
 
-#  get_next_line
+# get_next_line
 
-##  Descrição
+## Description
 
-O **get_next_line** é um projeto da 42 cujo objetivo é implementar uma função capaz de **ler um arquivo linha por linha**, a partir de um *file descriptor (fd)*.  
-O desafio principal é lidar com leituras parciais e gerenciar corretamente a memória, garantindo que cada chamada da função retorne **exatamente uma linha**, mesmo quando o *buffer* usado é menor que o tamanho da linha.
+**get_next_line** is a 42 project aimed at implementing a function capable of **reading a file line by line**, from a *file descriptor (fd)*.  
+The main challenge is handling partial reads and correctly managing memory, ensuring that each function call returns **exactly one line**, even when the *buffer* used is smaller than the line size.
 
-### 🎯 Objetivos
-- Ler de qualquer *file descriptor* até encontrar `\n` ou o fim do arquivo.  
-- Retornar cada linha separadamente, incluindo o caractere `\n` quando presente.  
-- Manter o conteúdo não lido em uma variável `static`, para ser usado na próxima chamada.  
-- Funcionar corretamente com qualquer valor de `BUFFER_SIZE`.  
+### 🎯 Objectives
+- Read from any *file descriptor* until `\n` or the end of the file is found.  
+- Return each line separately, including the `\n` character when present.  
+- Keep unread content in a `static` variable to be used in the next call.  
+- Work correctly with any `BUFFER_SIZE` value.  
 
-Esse projeto reforça o uso de leitura de arquivos, ponteiros e alocação dinâmica em C, preparando para trabalhos maiores que exigem manipulação segura de memória.
+This project reinforces the use of file reading, pointers, and dynamic allocation in C, preparing for larger works that require safe memory manipulation.
 
 ---
 
-##  Instruções
+## Instructions
 
-###  Compilação obrigatória (conforme o subject)
+### Mandatory Compilation (according to the subject)
 
-De acordo com o *subject oficial*, a **compilação obrigatória** deve ser feita **somente com os arquivos do projeto**, sem incluir um `main.c` (https://github.com/Welsete/get_next_line).
+According to the *official subject*, **mandatory compilation** must be done **only with the project files**, without including a `main.c` (https://github.com/Welsete/get_next_line).
 
-Exemplo:
+Example:
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c
 ```
 
-Você pode alterar o valor de `BUFFER_SIZE` para testar diferentes tamanhos:
+You can change the `BUFFER_SIZE` value to test different sizes:
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=1 get_next_line.c get_next_line_utils.c
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=9999 get_next_line.c get_next_line_utils.c
@@ -36,55 +36,55 @@ cc -Wall -Wextra -Werror -D BUFFER_SIZE=9999 get_next_line.c get_next_line_utils
 
 ---
 
-###  Compilação opcional (para testes pessoais)
+### Optional Compilation (for personal testing)
 
-Caso deseje testar o projeto localmente, você pode adicionar um `main.c` (https://github.com/Welsete/get_next_line) e compilar com:
+If you wish to test the project locally, you can add a `main.c` (https://github.com/Welsete/get_next_line) and compile with:
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c -o gnl
 ```
 
-Depois execute:
+Then run:
 ```bash
 ./gnl tests/test1.txt
 ```
 
-Esse método é **opcional** e serve apenas para facilitar testes pessoais.  
-Durante a avaliação da 42, **não use `main.c` nem gere executáveis** - apenas os arquivos obrigatórios devem ser compilados.
+This method is **optional** and serves only to facilitate personal testing.  
+During the 42 evaluation, **do not use `main.c` nor generate executables** - only the mandatory files must be compiled.
 
 ---
 
-###  Makefile (uso opcional)
+### Makefile (optional use)
 
-Um **Makefile bônus** foi incluído apenas para **facilitar os testes automáticos**.  
-Ele **não faz parte da avaliação obrigatória**, mas ajuda a demonstrar o funcionamento com diferentes *buffers* e arquivos de teste.
+A **bonus Makefile** was included only to **facilitate automatic testing**.  
+It **is not part of the mandatory evaluation**, but helps demonstrate functionality with different *buffers* and test files.
 
-Exemplo de uso:
+Usage example:
 ```bash
-make b42 empty      # BUFFER_SIZE = 42, arquivo tests/empty.txt
-make b1 small       # BUFFER_SIZE = 1, arquivo tests/small.txt
-make b1000 large    # BUFFER_SIZE = 1000, arquivo tests/large.txt
-make b23921         # BUFFER_SIZE = 23921, arquivo tests/test1.txt
+make b42 empty      # BUFFER_SIZE = 42, file tests/empty.txt
+make b1 small       # BUFFER_SIZE = 1, file tests/small.txt
+make b1000 large    # BUFFER_SIZE = 1000, file tests/large.txt
+make b23921         # BUFFER_SIZE = 23921, file tests/test1.txt
 ```
 
-Comandos adicionais disponíveis:
+Additional commands available:
 ```bash
-make            # Compila a biblioteca get_next_line.a
-make test       # Compila o programa de teste com o main.c
-make run        # Compila e executa o teste automaticamente
-make clean      # Remove os arquivos objeto (.o)
-make fclean     # Remove objetos e binários
-make re         # Executa fclean e recompila do zero
+make            # Compiles the get_next_line.a library
+make test       # Compiles the test program with main.c
+make run        # Compiles and runs the test automatically
+make clean      # Removes object files (.o)
+make fclean     # Removes objects and binaries
+make re         # Runs fclean and recompiles from scratch
 ```
 
-⚠️ **Importante:**  
-Durante a avaliação, o avaliador deve compilar **manualmente**, conforme indicado no subject.  
-O Makefile serve apenas como ferramenta de apoio para demonstração e autoavaliação.
+⚠️ **Important:**  
+During the evaluation, the evaluator must compile **manually**, as indicated in the subject.  
+The Makefile serves only as a support tool for demonstration and self-evaluation.
 
 ---
 
-##  Estrutura de Testes
+## Test Structure
 
-Arquivos de teste sugeridos (não obrigatórios pelo subject):
+Suggested test files (not mandatory by the subject):
 
 ```
 tests/
@@ -95,47 +95,47 @@ tests/
 └── no_newline.txt
 ```
 
-Esses arquivos permitem testar:
-- Arquivo vazio (`empty.txt`)  
-- Arquivo com várias linhas (`test1.txt`)  
-- Linhas curtas (`small.txt`)  
-- Linhas longas (`large.txt`)  
-- Arquivo sem quebra de linha final (`no_newline.txt`)  
+These files allow testing:
+- Empty file (`empty.txt`)  
+- File with multiple lines (`test1.txt`)  
+- Short lines (`small.txt`)  
+- Long lines (`large.txt`)  
+- File without a final newline (`no_newline.txt`)  
 
 ---
 
-##  Explicação do Algoritmo
+## Algorithm Explanation
 
-O funcionamento do `get_next_line` é dividido em quatro partes principais:
+The `get_next_line` logic is divided into four main parts:
 
-1. **`read_and_stash()`** - lê do *file descriptor* e acumula o conteúdo no *stash* até encontrar um `\n` ou o fim do arquivo.  
-2. **`extract_line()`** - separa a próxima linha completa a ser retornada.  
-3. **`create_line()`** - aloca dinamicamente a linha e copia o conteúdo correto.  
-4. **`update_stash()`** - mantém o que sobrou após o `\n` para a próxima chamada.  
+1. **`read_and_stash()`** - reads from the *file descriptor* and accumulates content in the *stash* until a `\n` or the end of the file is found.  
+2. **`extract_line()`** - separates the next complete line to be returned.  
+3. **`create_line()`** - dynamically allocates the line and copies the correct content.  
+4. **`update_stash()`** - keeps what remained after the `\n` for the next call.  
 
-Essa estrutura garante:
-- Compatibilidade com qualquer `BUFFER_SIZE`;  
-- Leitura contínua e segura;  
-- Nenhum vazamento de memória;  
-- Comportamento previsível e estável em qualquer cenário.
-
----
-
-##  Recursos
-
-### Referências Oficiais
-- [Funções da biblioteca C - read(), malloc(), free(), static variable] - DevDocs (https://devdocs.io/)
-- [Subject oficial do get_next_line (42)] - Intra 42SP
-- [XaveCoding - Curso: Dominando Estrutura de Dados 1] - Professor Samuka (https://www.youtube.com/@xavecoding)
-- [Variável estática] - StackOverflow (https://pt.stackoverflow.com/questions/164808/vari%C3%A1vel-static-e-define )
+This structure ensures:
+- Compatibility with any `BUFFER_SIZE`;  
+- Continuous and safe reading;  
+- No memory leaks;  
+- Predictable and stable behavior in any scenario.
 
 ---
 
-##  Uso de Inteligência Artificial
+## Resources
 
-Ferramentas de IA (**ChatGPT / ScholarGPT**) foram utilizadas **somente para:**
-- Revisão estrutural e explicação do fluxo de memória;  
-- Auxílio na criação de arquivos de teste e Makefile auxiliar;  
-- Padronização e clareza deste README.  
+### Official References
+- [C Library Functions - read(), malloc(), free(), static variable] - DevDocs (https://devdocs.io/)
+- [Official get_next_line Subject (42)] - Intra 42SP
+- [XaveCoding - Course: Mastering Data Structures 1] - Professor Samuka (https://www.youtube.com/@xavecoding)
+- [Static variable] - StackOverflow (https://pt.stackoverflow.com/questions/164808/vari%C3%A1vel-static-e-define )
 
-Todo o código e a lógica foram escritos e testados manualmente por **wtavares**.
+---
+
+## AI Usage
+
+AI Tools (**ChatGPT / ScholarGPT**) were used **only for:**
+- Structural review and memory flow explanation;  
+- Assistance in creating test files and the auxiliary Makefile;  
+- Standardization and clarity of this README.  
+
+All code and logic were written and manually tested by **wtavares**
